@@ -10,14 +10,14 @@
 
   ```
     * Swagger Url
-      * http://localhost:8080/v3/api-docs
-      * http://localhost:8080/swagger-ui/index.html
+      * http://localhost:8082/v3/api-docs
+      * http://localhost:8082/swagger-ui/index.html
     
     * Actuator Url
-      * http://localhost:8080/actuator
+      * http://localhost:8082/actuator
       
     * Endpoints 
-      * http://localhost:8080/api/users
-      * http://localhost:8080/api/user/role/ADMIN
-      * http://localhost:8080/api/user/1
+      * http://localhost:8082/api/users
+      * http://localhost:8082/api/user/role/ADMIN
+      * http://localhost:8082/api/user/1
   ```
