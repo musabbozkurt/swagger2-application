@@ -1,24 +1,31 @@
 package com.mb.swagger2.api.controller;
 
 import com.mb.swagger2.api.response.User;
+import com.mb.swagger2.config.Swagger2ConfigModel;
+import com.mb.swagger2.config.Swagger2ConfigProperties;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Api(value = "Swagger2 Rest Controller")
 @RequestMapping("/api")
 @RestController
+@RequiredArgsConstructor
 public class Swagger2Controller {
 
-    List<User> users = new ArrayList<>();
+    private final List<User> users = new ArrayList<>();
+
+    private final Swagger2ConfigProperties swagger2ConfigProperties;
 
     {
         users.add(new User(1, "Swagger2-User1", "ADMIN", "swagger2.user1@test.com"));
@@ -54,6 +61,12 @@ public class Swagger2Controller {
         return users.stream()
                 .filter(x -> x.getRole().equalsIgnoreCase(role))
                 .collect(Collectors.toList());
+    }
+
+    @ApiOperation(value = "Get User Config Properties ", response = Map.class, tags = "getUserConfigProperties")
+    @RequestMapping(value = "/user/config")
+    public Map<String, Swagger2ConfigModel> getUserConfigProperties() {
+        return swagger2ConfigProperties.getConfig();
     }
 
 }

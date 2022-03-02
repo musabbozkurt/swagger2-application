@@ -21,3 +21,10 @@
       * http://localhost:8082/api/user/role/ADMIN
       * http://localhost:8082/api/user/1
   ```
+
+### References
+
+  ```
+    * https://www.logicbig.com/tutorials/spring-framework/spring-core/tests-context-initializer.html
+    * https://github.com/mohnish82/so-spring-boot-testprops
+  ```
